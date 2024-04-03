@@ -6,6 +6,8 @@ namespace Webb_Shop_Weapons.Data
 {
     public class AppDbContext : DbContext
     {
+        public DbSet<Ammo> Ammos { get; set; }
+        public DbSet<Weapon> Weapons { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Weapon> Weapons { get; set; }
         public DbSet<Ammo> Ammos { get; set; }
