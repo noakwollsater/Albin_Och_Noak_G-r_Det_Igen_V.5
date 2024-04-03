@@ -8,6 +8,41 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Include="wwwroot\Pictures\Ammo\50_AE_Ammunition_Box.webp" />
+	  <None Include="wwwroot\Pictures\Ammo\50_BMG_Ammunition_Box.webp" />
+	  <None Include="wwwroot\Pictures\Ammo\7.62x39mm_Ammunition_Box.webp" />
+	  <None Include="wwwroot\Pictures\Ammo\9mm_Ammunition_Box.webp" />
+	  <None Include="wwwroot\Pictures\Ammo\Cal_5_56x45mm_Ammobox_TR.png" />
+	  <None Include="wwwroot\Pictures\Ammo\Cal_7_62x54mmR_AP_Ammobox.png" />
+	  <None Include="wwwroot\Pictures\Ammo\Cal_7_92x57mm_AmmoboxClosed.png" />
+	  <None Include="wwwroot\Pictures\Vapen\MachinBazooka\AT4_HEAT.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\MachinBazooka\M249.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\MachinBazooka\RPG7.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\MachinBazooka\RPK.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\MachinBazooka\VHS_BG.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Melee\Baseball_Bat_Nails.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Melee\Dildo.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Melee\Improvised_Metal_Sword.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Melee\Katana.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Melee\Wire_Wooden_Club.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Pistols\Block_21.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Pistols\DEagle_.357.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Pistols\HS_SF19.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Pistols\M1911.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Pistols\TEC01_M9.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Rifle\AK-15.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Rifle\AK-47.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Rifle\AKM.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Rifle\M16.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Rifle\MK18.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Snipers\AWM.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Snipers\Carbon_Hunter.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Snipers\Kar98.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Snipers\M82A1.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Snipers\SVD.webp" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.16" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.16" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.16" />

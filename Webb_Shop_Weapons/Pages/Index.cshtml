@@ -6,3 +6,14 @@
 }
 
 <h1>Welcome, @accessControl.LoggedInAccountName!</h1>
+
+@foreach (var weapon in Model.weapons)
+{
+    <p>@weapon.WeaponName</p>
+    <p>@weapon.WeaponPrice</p>
+    <p>@weapon.WeaponDescription</p>
+    <p>@weapon.WeaponType</p>
+    <img src="Pictures/Vapen/Rifle/@weapon.WeaponImage"/>
+    <p>@weapon.WeaponId</p>
+
+}

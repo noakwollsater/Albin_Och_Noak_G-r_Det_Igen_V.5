@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Webb_Shop_Weapons.Data;
+using Webb_Shop_Weapons.Models;
 
 namespace Webb_Shop_Weapons.Pages
 {
@@ -13,9 +14,11 @@ namespace Webb_Shop_Weapons.Pages
             this.database = database;
         }
 
+        public List<Weapon> weapons { get; set; }
+
         public void OnGet()
         {
-
+            weapons = database.Weapons.ToList();
         }
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using System.Security.Claims;
+using Webb_Shop_Weapons.CSV_Files;
 using Webb_Shop_Weapons.Data;
 using Webb_Shop_Weapons.Models;
 
@@ -122,4 +123,26 @@ using (var scope = app.Services.CreateScope())
     SampleData.Create(context);
 }
 
-app.Run();
+
+
+static void ReadCSV()
+{
+    var dbContext = new AppDbContext(new DbContextOptionsBuilder<AppDbContext>().UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=ExampleDatabase;Trusted_Connection=True;MultipleActiveResultSets=true").Options);
+    var wepån = ReadWeaponCSV.ReadWeapons(@"CSV-Files\ReadWeaponInfo.csv");
+    using (dbContext)
+    {
+        foreach (var wepon in wepån)
+        {
+                var existingWeapon = dbContext.Weapons.FirstOrDefault(w => w.WeaponName == wepon.WeaponName);
+                if (existingWeapon == null)
+                {
+                    dbContext.Add(wepon);
+                }
+        }
+        dbContext.SaveChanges();
+    }
+}
+
+ReadCSV();
+
+    app.Run();
