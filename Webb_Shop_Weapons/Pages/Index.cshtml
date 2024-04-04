@@ -5,42 +5,15 @@
     ViewData["Title"] = "Home page";
 }
 
-<style>
-    body
-    {
-        background-color: #0A1119;
-        background-image: url("/Pictures/Images/background.jpg");
-        background-size: fill;
-        background-repeat: no-repeat;
-    }
-    .productcard
-    {
-        border: 1px solid black;
-        padding: 10px;
-        margin: 10px;
-        width: 200px;
-        height: 400px;
-        background-color: #00000085;
-    }
-    .products
-    {
-        display: flex; flex-wrap: wrap; justify-content: center;
-    }
-    .weaponpic
-    {
-        width: 70%;
-    }
-    .banner
-    {
-        width: 60%; height: 200px; margin: 0 auto; display: block; text-align: center;
-    }
-</style>
+<head>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
 
 <img src="/Pictures/Images/scumborder.png" class="banner">
 
-<h2>Welcome, @accessControl.LoggedInAccountName!</h2>
 
 <div class="products">
+
 @foreach (var weapon in Model.weapons)
 {
     <div class="productcard">
@@ -51,5 +24,11 @@
         <h1><button>Add to Cart</button></h1>
     </div>
 }
-</div>
 
+<form method="post">
+    <button  type="submit" name="prev" disabled="@(!Model.prevPage)">Prev</button>
+    <button type="submit" name="next" disabled="@(!Model.nextPage)" asp-page-handler="next">Next</button> //Det ska gå att göra såhär som vi gör. men med asp-page-handler skit eller nåt.
+                                                                                                            Har gjort nu så det inte crashar när man trycker på next.
+    <input type="hidden" name="page" value="@(Model.currentPage)" />
+</form>
+</div>

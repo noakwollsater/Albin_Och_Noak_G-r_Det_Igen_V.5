@@ -1,0 +1,45 @@
+@font-face {
+    font-family: "DamageInc";
+    src: url("Fonts/Smalldamade.ttf");
+}
+body {
+    background-color: #0A1119;
+    background-image: url("/Pictures/Images/background.jpg");
+    background-size: fill;
+    background-repeat: no-repeat;
+}
+
+.productcard {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    height: 350px;
+    background-color: #00000085;
+    font-family: DamageInc;
+    font-size: 15px;
+    letter-spacing: 2px;
+    color: white;
+    text-align: center;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    margin: 0 auto;
+    width: 80%;
+
+}
+
+.weaponpic {
+    width: 70%;
+}
+
+.banner {
+    width: 60%;
+    height: 200px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
