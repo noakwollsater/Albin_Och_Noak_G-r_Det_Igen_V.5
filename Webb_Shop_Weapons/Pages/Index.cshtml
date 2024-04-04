@@ -5,16 +5,21 @@
     ViewData["Title"] = "Home page";
 }
 
+<style>
+    .products{align-items: center; justify-content: center; display: grid; grid-column: 1fr, 1fr, 1fr}
+</style>
+
 <h1>Welcome, @accessControl.LoggedInAccountName!</h1>
 
+<div class="products">
 @foreach (var weapon in Model.weapons)
 {
-    <p>@weapon.WeaponName</p>
-    <p>@weapon.WeaponPrice</p>
-    <p>@weapon.WeaponDescription</p>
-    <p>@weapon.WeaponType</p>
-    <img src="Pictures/Vapen/Rifle/@weapon.WeaponImage"/>
-    <p>@weapon.WeaponId</p>
-    <p>@weapon.AmmoType</p>
-
+    <div class="product">
+        <img src="@weapon.WeaponImage" alt="Weapon image" style="width:100%"/>
+            <h3>@weapon.WeaponName</h3>
+            <p class="price">$@weapon.WeaponPrice</p>
+            <p>@weapon.WeaponDescription</p>
+            <h5><button>Add to cart</button></h5>
+     </div>
 }
+</div>
