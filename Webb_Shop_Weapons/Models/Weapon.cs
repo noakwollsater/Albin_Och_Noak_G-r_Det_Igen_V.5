@@ -9,7 +9,7 @@
         public int WeaponPrice { get; set; }
         public string WeaponDescription { get; set; }
         public string WeaponImage { get; set; }
-        public int AmmoID { get; set; }
+        public int? AmmoID { get; set; }
         public Ammo Ammo {  get; set; }
 
         public ICollection<WeaponCartItem> WeaponCartItems { get; set; }
