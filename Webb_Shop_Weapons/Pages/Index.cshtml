@@ -6,7 +6,10 @@
 }
 
 <style>
-    .products{align-items: center; justify-content: center; display: grid; grid-column: 1fr, 1fr, 1fr}
+    body{background-color:black}
+    .productcard{border: 1px solid black; padding: 10px; margin: 10px; width: 200px; height: 400px; background-color: white;}
+    .products{display: flex; flex-wrap: wrap; justify-content: center;}
+    img{width: 70%;}    
 </style>
 
 <h1>Welcome, @accessControl.LoggedInAccountName!</h1>
@@ -14,12 +17,13 @@
 <div class="products">
 @foreach (var weapon in Model.weapons)
 {
-    <div class="product">
-        <img src="@weapon.WeaponImage" alt="Weapon image" style="width:100%"/>
-            <h3>@weapon.WeaponName</h3>
-            <p class="price">$@weapon.WeaponPrice</p>
-            <p>@weapon.WeaponDescription</p>
-            <h5><button>Add to cart</button></h5>
-     </div>
+    <div class="productcard">
+        <h2>@weapon.WeaponName</h2>
+        <h3>@weapon.WeaponType</h3>
+        <p>@weapon.WeaponPrice$</p>
+        <img src="/Pictures/Vapen/Rifle/@weapon.WeaponImage" />
+        <h1><button>Add to Cart</button></h1>
+    </div>
 }
 </div>
+
