@@ -8,6 +8,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Content Include="CSV-Files\ReadWeaponInfo.csv" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Include="wwwroot\Pictures\Ammo\50_AE_Ammunition_Box.webp" />
 	  <None Include="wwwroot\Pictures\Ammo\50_BMG_Ammunition_Box.webp" />
 	  <None Include="wwwroot\Pictures\Ammo\7.62x39mm_Ammunition_Box.webp" />
@@ -35,11 +39,11 @@
 	  <None Include="wwwroot\Pictures\Vapen\Rifle\AKM.webp" />
 	  <None Include="wwwroot\Pictures\Vapen\Rifle\M16.webp" />
 	  <None Include="wwwroot\Pictures\Vapen\Rifle\MK18.webp" />
-	  <None Include="wwwroot\Pictures\Vapen\Snipers\AWM.webp" />
-	  <None Include="wwwroot\Pictures\Vapen\Snipers\Carbon_Hunter.webp" />
-	  <None Include="wwwroot\Pictures\Vapen\Snipers\Kar98.webp" />
-	  <None Include="wwwroot\Pictures\Vapen\Snipers\M82A1.webp" />
-	  <None Include="wwwroot\Pictures\Vapen\Snipers\SVD.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Rifle\AWM.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Rifle\Carbon_Hunter.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Rifle\Kar98.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Rifle\M82A1.webp" />
+	  <None Include="wwwroot\Pictures\Vapen\Rifle\SVD.webp" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -52,6 +56,10 @@
 		</PackageReference>
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="6.0.16" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="wwwroot\Pictures\Vapen\Snipers\" />
 	</ItemGroup>
 
 </Project>
