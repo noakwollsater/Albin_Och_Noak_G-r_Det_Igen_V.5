@@ -7,6 +7,7 @@
 
 <head>
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <img src="/Pictures/Images/scumborder.png" class="banner">
@@ -19,21 +20,20 @@
     <div class="productcard">
         <h2>@weapon.WeaponName</h2>
         <h3>@weapon.WeaponType</h3>
-        <p>@weapon.WeaponPrice$</p>
+        <p>@weapon.WeaponPrice</p>
         <img src="/Pictures/Vapen/Rifle/@weapon.WeaponImage" class="weaponpic"/>
-        <h1><button>Add to Cart</button></h1>
+        <button class ="cartbtn"><i class="fa-solid fa-cart-shopping fa-lg"></i></button>
     </div>
 }
-
-    <form asp-page="" method="get">
-        <button type="submit" name="pageID" value="@(Model.CurrentPage - 1)" @if (!Model.HasPreviousPage)
-        {
-            <text>disabled</text>
-        }>Prev</button>
-        <button type="submit" name="pageID" value="@(Model.CurrentPage + 1)" @if (!Model.HasNextPage)
-        {
-            <text>disabled</text>
-        }>Next</button>
-        
-    </form>
 </div>
+<form asp-page="" method="get" class="btnform">
+    <button type="submit" class="btn" name="pageID" value="@(Model.CurrentPage - 1)" @if (!Model.HasPreviousPage)
+    {
+        <text>disabled</text>
+    }>Prev</button>
+    <button type="submit" class="btn" name="pageID" value="@(Model.CurrentPage + 1)" @if (!Model.HasNextPage)
+    {
+        <text>disabled</text>
+    }>Next</button>
+
+</form>
