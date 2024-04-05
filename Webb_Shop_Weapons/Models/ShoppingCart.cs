@@ -2,8 +2,9 @@
 {
     public class ShoppingCart
     {
-        public int ShoppingCartID { get; set; }
-        public ICollection<WeaponCartItem> WeaponCartItems { get; set; }
-        public ICollection<AmmoCartItem> AmmoCartItems { get; set;}
+        public int ShoppingCartId { get; set; }
+        public int AccountId { get; set; }
+        public Account Account { get; set; }
+        public ICollection<CartItem> Items { get; set; }
     }
 }

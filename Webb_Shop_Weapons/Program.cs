@@ -125,15 +125,15 @@ using (var scope = app.Services.CreateScope())
 
 
 
-static void ReadCSV()
+static void ReadCSV(string connectionString)
 {
-    var dbContext = new AppDbContext(new DbContextOptionsBuilder<AppDbContext>().UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=ExampleDatabase;Trusted_Connection=True;MultipleActiveResultSets=true").Options);
+    var dbContext = new AppDbContext(new DbContextOptionsBuilder<AppDbContext>().UseSqlServer(connectionString).Options);
     var wepån = ReadWeaponCSV.ReadWeapons(@"CSV-Files\ReadWeaponInfo.csv");
     using (dbContext)
     {
         foreach (var wepon in wepån)
         {
-                var existingWeapon = dbContext.Weapons.FirstOrDefault(w => w.WeaponName == wepon.WeaponName);
+                var existingWeapon = dbContext.Weapons.FirstOrDefault(w => w.Name == wepon.Name);
                 if (existingWeapon == null)
                 {
                     dbContext.Add(wepon);
@@ -143,6 +143,7 @@ static void ReadCSV()
     }
 }
 
-ReadCSV();
+string connectionString = "Server=(localdb)\\mssqllocaldb;Database=ExampleDatabase;Trusted_Connection=True;MultipleActiveResultSets=true";
+ReadCSV(connectionString);
 
     app.Run();

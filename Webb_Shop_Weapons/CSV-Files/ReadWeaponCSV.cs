@@ -14,13 +14,15 @@ namespace Webb_Shop_Weapons.CSV_Files
                     var line = reader.ReadLine();
                     var values = line.Split(',');
 
-                    Weapon weapon = new Weapon();
-                    weapon.WeaponName = values[0];
-                    weapon.WeaponType = values[1];
-                    weapon.AmmoType = values[2];
-                    weapon.WeaponPrice = Convert.ToInt32(values[3]);
-                    weapon.WeaponDescription = values[4];
-                    weapon.WeaponImage = values[5];
+                    var weapon = new Weapon
+                    {
+                        Name = values[0],
+                        Category = new Category { Name = values[1] },
+                        Ammo = new Ammo { Name = values[2] },
+                        Price = Convert.ToDecimal(values[3]),
+                        Description = values[4],
+                        Image = values[5],
+                    };
                     weapons.Add(weapon);
                 }
             }
