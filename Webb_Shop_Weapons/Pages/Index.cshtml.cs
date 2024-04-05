@@ -22,7 +22,7 @@ namespace Webb_Shop_Weapons.Pages
         public bool HasNextPage { get; set; }
         public bool HasPreviousPage { get; set; }
 
-        public IActionResult OnGet(int pageID = 1)
+        public IActionResult OnGet(int pageID = 0)
         {
             CurrentPage = pageID;
 
