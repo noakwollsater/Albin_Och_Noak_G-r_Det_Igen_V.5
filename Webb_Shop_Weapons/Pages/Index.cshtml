@@ -18,10 +18,10 @@
 @foreach (var weapon in Model.Weapons)
 {
     <div class="productcard">
-        <h2>@weapon.WeaponName</h2>
-        <h3>@weapon.WeaponType</h3>
-        <p>@weapon.WeaponPrice</p>
-        <img src="/Pictures/Vapen/Rifle/@weapon.WeaponImage" class="weaponpic"/>
+        <h2>@weapon.Name</h2>
+        <h3>@weapon.Category</h3>
+        <p>@weapon.Price</p>
+        <img src="/Pictures/Vapen/Rifle/@weapon.Image" class="weaponpic"/>
         <button class ="cartbtn"><i class="fa-solid fa-cart-shopping fa-lg"></i></button>
     </div>
 }
