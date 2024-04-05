@@ -4,6 +4,5 @@ namespace Webb_Shop_Weapons.Models
 {
     public class Ammo : Product
     {
-
     }
 }
