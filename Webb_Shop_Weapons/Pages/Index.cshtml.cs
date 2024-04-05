@@ -11,33 +11,34 @@ namespace Webb_Shop_Weapons.Pages
     {
         private readonly AppDbContext database;
         public List<Weapon> weapons { get; set; } = new List<Weapon>();
+        private const int PageSize = 10;
         public IndexModel(AppDbContext database)
         {
             this.database = database;
         }
 
-        public bool prevPage { get; set; }
-        public bool nextPage { get; set; }
-        public int currentPage { get; set; }
+        public IList<Weapon> Weapons { get; set; }
+        public int CurrentPage { get; set; }
+        public bool HasNextPage { get; set; }
+        public bool HasPreviousPage { get; set; }
 
-        public void OnGet(int page = 1)
+        public IActionResult OnGet(int pageID = 1)
         {
-            int weaponCount = 10;
-            int totalWeapons = database.Weapons.Count();
-            int totalPages = (int)Math.Ceiling((double)totalWeapons / weaponCount);
-            currentPage = page;
-            int startIndex = (page - 1) * weaponCount;
-            weapons = database.Weapons.Skip(startIndex).Take(weaponCount).ToList();
-            prevPage = page > 1;
-            nextPage = page < totalPages;
+            CurrentPage = pageID;
+
+            var totalCount = database.Weapons.Count();
+            var totalPages = (int)Math.Floor(totalCount / (double)PageSize);
+
+            Weapons = database.Weapons
+                .Skip((CurrentPage) * PageSize)
+                .Take(PageSize)
+                .ToList();
+
+            HasNextPage = CurrentPage < totalPages;
+            HasPreviousPage = CurrentPage >= 1;
+
+            return Page();
         }
-        public IActionResult OnGetPrevPage(int page)
-        {
-            return RedirectToPage("/Index.cshtml", new { currentPage = page - 1 });
-        }
-        public IActionResult OnGetNextPage(int page)
-        {
-            return RedirectToPage("/Index", new { page = page + 1 });
-        }
+
     }
 }

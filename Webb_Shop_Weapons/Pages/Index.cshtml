@@ -14,7 +14,7 @@
 
 <div class="products">
 
-@foreach (var weapon in Model.weapons)
+@foreach (var weapon in Model.Weapons)
 {
     <div class="productcard">
         <h2>@weapon.WeaponName</h2>
@@ -25,10 +25,15 @@
     </div>
 }
 
-<form method="post">
-    <button  type="submit" name="prev" disabled="@(!Model.prevPage)">Prev</button>
-    <button type="submit" name="next" disabled="@(!Model.nextPage)" asp-page-handler="next">Next</button> //Det ska gå att göra såhär som vi gör. men med asp-page-handler skit eller nåt.
-                                                                                                            Har gjort nu så det inte crashar när man trycker på next.
-    <input type="hidden" name="page" value="@(Model.currentPage)" />
-</form>
+    <form asp-page="" method="get">
+        <button type="submit" name="pageID" value="@(Model.CurrentPage - 1)" @if (!Model.HasPreviousPage)
+        {
+            <text>disabled</text>
+        }>Prev</button>
+        <button type="submit" name="pageID" value="@(Model.CurrentPage + 1)" @if (!Model.HasNextPage)
+        {
+            <text>disabled</text>
+        }>Next</button>
+        
+    </form>
 </div>
