@@ -9,6 +9,34 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 }
+.top{
+    display:flex;
+}
+.searchbar {
+    margin-left: 5px;
+    display: flex;
+    background-color: #00000085;
+    width: 60%;
+    padding: 3px;
+    height: 10%;
+}
+.searchBar {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-family: DamageInc;
+    font-size: 15px;
+    width: 100%;
+}
+.searchbtn{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-family: DamageInc;
+    font-size: 15px;
+    cursor: pointer;
+}
+
 
 .loginbtn, .cart, .selectaccount, .account, .LogIn, .Home, .btn, .productcard, a, .cartbtn {
     font-family: DamageInc;
