@@ -31,8 +31,8 @@ namespace Webb_Shop_Weapons.Data
                 });
             }
 
-
-            // Seed Categories
+            if (database.Categories.Count() == 0)
+            {
             var categories = new List<Category>
                 {
                     new Category { Name = "Assault Rifle" },
@@ -45,6 +45,8 @@ namespace Webb_Shop_Weapons.Data
                     // Add more categories if needed
                 };
             database.Categories.AddRange(categories);
+            }
+            // Seed Categories
 
 
             // Seed Ammos
