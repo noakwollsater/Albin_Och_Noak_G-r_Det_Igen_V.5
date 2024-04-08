@@ -13,19 +13,29 @@ body {
     text-align: center;
 }
 
-.weaponpic{
+.weaponpic, .ammopic{
     width: 20%;
 }
 
-.WeaponCard{
+
+.AmmoCard, .WeaponCard{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    color: white;
+    font-family: "DamageInc";
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: 2px;
     margin: 0 auto;
-    width: 60%;
+    width: 50%;
     height: 200px;
     background-color: #00000085;
     border-radius: 10px;
     margin-top: 10px;
-    margin-bottom: 10px;
+}
+.WeaponCard{
+    width: 80%;
+    height: 400px;
+
 }

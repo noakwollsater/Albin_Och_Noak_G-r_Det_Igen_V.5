@@ -45,28 +45,28 @@ namespace Webb_Shop_Weapons.Data
                     // Add more categories if needed
                 };
             database.Categories.AddRange(categories);
-            database.SaveChanges();
+
 
             // Seed Ammos
             var ammos = new List<Ammo>
                 {
-                    new Ammo { Name = "5.56x45mm" },
-                    new Ammo { Name = "7.62x39mm" },
-                    new Ammo { Name = "7.62x54mmR" },
-                    new Ammo { Name = ".338" },
-                    new Ammo { Name = ".50 BMG" },
-                    new Ammo { Name = ".30-06" },
-                    new Ammo { Name = ".50 AE" },
-                    new Ammo { Name = ".45 ACP" },
-                    new Ammo { Name = "9x19mm" },
-                    new Ammo { Name = "40mm" },
-                    new Ammo { Name = "40x46 Grenade" },
+                    new Ammo { Name = "5.56x45mm", Price = 1110, Image = "Cal_5_56x45mm_Ammobox_TR.png" },
+                    new Ammo { Name = "7.62x39mm", Price = 1200, Image = "7.62x39mm_Ammunition_Box.webp" },
+                    new Ammo { Name = "7.62x54mmR", Price = 2000, Image = "7.62x54mmR_AP_Ammobox.png" },
+                    new Ammo { Name = ".338", Price =  1230, Image = "338_Ammunition_Box.webp"},
+                    new Ammo { Name = ".50 BMG", Price = 19000, Image = "50_BMG_Ammunition_Box.webp" },
+                    new Ammo { Name = ".30-06", Price = 800, Image = "Cal_.30-06_Ammunition_Box.webp" },
+                    new Ammo { Name = ".50 AE", Price = 750, Image = "50_AE_Ammunition_Box.webp" },
+                    new Ammo { Name = ".45 ACP", Price = 600, Image = "45_ACP_Ammunition_Box.webp" },
+                    new Ammo { Name = "9x19mm", Price = 450, Image = "9mm_Ammunition_Box.webp" },
+                    new Ammo { Name = "PG-7M", Price = 1100, Image = "PG-7M.webp" },
+                    new Ammo { Name = "40x46 Grenade", Price = 1320, Image = "40x46_Grenade.webp" },
                     new Ammo { Name = "84mm" },
-                    new Ammo { Name = "7.92x57mm"}
+                    new Ammo { Name = "7.92x57mm", Price = 1000, Image = "Cal_7_92x57mm_AmmoboxClosed.png" }
                     // Add more ammo types if needed
                 };
             database.Ammos.AddRange(ammos);
-            database.SaveChanges();
+
 
             // Seed Weapons from CSV file
             var weaponsFromCSV = new List<Weapon>
@@ -99,9 +99,9 @@ namespace Webb_Shop_Weapons.Data
                     // Add more weapons if needed
                 };
             database.Weapons.AddRange(weaponsFromCSV);
-            database.SaveChanges();
 
             database.SaveChanges();
         }
+
     }
 }

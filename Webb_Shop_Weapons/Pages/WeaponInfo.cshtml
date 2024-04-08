@@ -17,7 +17,6 @@
         <h2>@Model.Weapon.Name</h2>
         <h3>@Model.Weapon.Category.Name</h3>
         <h3>@Model.Weapon.Ammo.Name</h3>
-        <h4>@Model.Weapon.Description</h4>
         <p>@Model.Weapon.Price</p>
         <img src="/Pictures/Vapen/Rifle/@Model.Weapon.Image" class="weaponpic" />
         <form method="post" asp-page-handler="AddToCart" class="AddToCart">
@@ -25,13 +24,18 @@
             <input type="hidden" name="WeaponID" value="@Model.Weapon.ProductId" />
             <button type="submit" class="addtocartbtn">Add to cart</button>
         </form>
+        <h4>@Model.Weapon.Description</h4>
 </div>
 
-<div class="FittingAmmo">
-    <h2>Fitting Ammo</h2>
-    <div class="AmmoCard">
-        <h3>@Model.Weapon.Ammo.Name</h3>
-        <h4>@Model.Weapon.Ammo.Description</h4>
-        <p>@Model.Weapon.Ammo.Price</p>
-        <img src=""/>
+<div class="AmmoCard">
+      <h2>Fitting Ammo</h2>
+      <h3>@Model.Weapon.Ammo.Name</h3>
+      <h4>@Model.Weapon.Ammo.Description</h4>
+      <p>@Model.Weapon.Ammo.Price</p>
+      <img src="/Pictures/Ammo/@Model.Ammo.Image" class="ammopic"/>
+      <form method="post" asp-page-handler="AddToCart" class="AddToCart">
+                <input type="number" name="Quantity" class="quantity" value="1" />
+                <input type="hidden" name="WeaponID" value="@Model.Ammo.ProductId" />
+                <button type="submit" class="addtocartbtn">Add to cart</button>
+            </form>
 </div>
