@@ -31,8 +31,8 @@ namespace Webb_Shop_Weapons.Data
                 });
             }
 
-
-            // Seed Categories
+            if (database.Categories.Count() == 0)
+            {
             var categories = new List<Category>
                 {
                     new Category { Name = "Assault Rifle" },
@@ -45,9 +45,13 @@ namespace Webb_Shop_Weapons.Data
                     // Add more categories if needed
                 };
             database.Categories.AddRange(categories);
+            }
+            // Seed Categories
 
 
             // Seed Ammos
+            if (database.Ammos.Count() == 0)
+            {
             var ammos = new List<Ammo>
                 {
                     new Ammo { Name = "5.56x45mm", Price = 1110, Image = "Cal_5_56x45mm_Ammobox_TR.png" },
@@ -66,9 +70,12 @@ namespace Webb_Shop_Weapons.Data
                     // Add more ammo types if needed
                 };
             database.Ammos.AddRange(ammos);
+            }
 
 
             // Seed Weapons from CSV file
+            if (database.Weapons.Count() == 0)
+            {
             var weaponsFromCSV = new List<Weapon>
                 {
                     new Weapon { Name = "MK18", CategoryId = 1, AmmoId = 1, Price = 12800, Description = "High-end assembled carbine with contracted and/or overhauled parts complete with all accessories to current standards at time of build.", Image = "MK18.webp" },
@@ -99,6 +106,7 @@ namespace Webb_Shop_Weapons.Data
                     // Add more weapons if needed
                 };
             database.Weapons.AddRange(weaponsFromCSV);
+            }
 
             database.SaveChanges();
         }
