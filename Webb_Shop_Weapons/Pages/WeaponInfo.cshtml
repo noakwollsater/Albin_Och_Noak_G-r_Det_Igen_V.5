@@ -2,5 +2,36 @@
 @model Webb_Shop_Weapons.Pages.WeaponInfoModel
 @inject Webb_Shop_Weapons.Data.AccessControl accessControl
 @{
+    ViewData["Title"] = "Weapon Info";
 }
-<p>Hej</p>
+
+<head>
+    <link rel="stylesheet" href="~/css/weaponinfo.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<img src="/Pictures/Images/scumborder.png" class="banner">
+
+
+<div class="WeaponCard">
+        <h2>@Model.Weapon.Name</h2>
+        <h3>@Model.Weapon.Category.Name</h3>
+        <h3>@Model.Weapon.Ammo.Name</h3>
+        <h4>@Model.Weapon.Description</h4>
+        <p>@Model.Weapon.Price</p>
+        <img src="/Pictures/Vapen/Rifle/@Model.Weapon.Image" class="weaponpic" />
+        <form method="post" asp-page-handler="AddToCart" class="AddToCart">
+            <input type="number" name="Quantity" class="quantity" value="1" />
+            <input type="hidden" name="WeaponID" value="@Model.Weapon.ProductId" />
+            <button type="submit" class="addtocartbtn">Add to cart</button>
+        </form>
+</div>
+
+<div class="FittingAmmo">
+    <h2>Fitting Ammo</h2>
+    <div class="AmmoCard">
+        <h3>@Model.Weapon.Ammo.Name</h3>
+        <h4>@Model.Weapon.Ammo.Description</h4>
+        <p>@Model.Weapon.Ammo.Price</p>
+        <img src=""/>
+</div>

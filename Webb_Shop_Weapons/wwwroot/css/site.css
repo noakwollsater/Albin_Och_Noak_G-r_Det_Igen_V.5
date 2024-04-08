@@ -62,13 +62,12 @@ body {
     width: 100%;
 }
 
-.productcard {
+.productcard, a {
     margin: 10px;
     width: 200px;
     height: 300px;
     background-color: #00000085;
     font-family: DamageInc;
-    font-size: 13px;
     letter-spacing: 2px;
     color: white;
     text-align: center;

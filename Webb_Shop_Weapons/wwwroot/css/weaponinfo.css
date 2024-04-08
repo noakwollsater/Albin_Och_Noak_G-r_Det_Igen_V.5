@@ -1,0 +1,31 @@
+@font-face {
+    font-family: "DamageInc";
+    src: url("Fonts/Smalldamade.ttf");
+}
+body {
+    background-size: cover;
+}
+.banner {
+    width: 60%;
+    height: 200px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
+
+.weaponpic{
+    width: 20%;
+}
+
+.WeaponCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 60%;
+    height: 200px;
+    background-color: #00000085;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
