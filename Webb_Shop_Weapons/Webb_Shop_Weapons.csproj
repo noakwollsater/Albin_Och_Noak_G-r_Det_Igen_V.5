@@ -8,10 +8,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Content Include="CSV-Files\ReadWeaponInfo.csv" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <None Include="wwwroot\Pictures\Ammo\50_AE_Ammunition_Box.webp" />
 	  <None Include="wwwroot\Pictures\Ammo\50_BMG_Ammunition_Box.webp" />
 	  <None Include="wwwroot\Pictures\Ammo\7.62x39mm_Ammunition_Box.webp" />
