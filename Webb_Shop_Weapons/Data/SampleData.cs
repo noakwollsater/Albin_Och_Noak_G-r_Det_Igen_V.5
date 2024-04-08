@@ -52,7 +52,7 @@ namespace Webb_Shop_Weapons.Data
                 {
                     new Ammo { Name = "5.56x45mm", Price = 1110, Image = "Cal_5_56x45mm_Ammobox_TR.png" },
                     new Ammo { Name = "7.62x39mm", Price = 1200, Image = "7.62x39mm_Ammunition_Box.webp" },
-                    new Ammo { Name = "7.62x54mmR", Price = 2000, Image = "7.62x54mmR_AP_Ammobox.png" },
+                    new Ammo { Name = "7.62x54mmR", Price = 2000, Image = "Cal_7_62x54mmR_AP_Ammobox.png" },
                     new Ammo { Name = ".338", Price =  1230, Image = "338_Ammunition_Box.webp"},
                     new Ammo { Name = ".50 BMG", Price = 19000, Image = "50_BMG_Ammunition_Box.webp" },
                     new Ammo { Name = ".30-06", Price = 800, Image = "Cal_.30-06_Ammunition_Box.webp" },
