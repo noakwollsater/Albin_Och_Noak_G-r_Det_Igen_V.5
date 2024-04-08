@@ -2,6 +2,7 @@
     font-family: "DamageInc";
     src: url("Fonts/Smalldamade.ttf");
 }
+
 body {
     background-color: #0A1119;
     background-image: url("/Pictures/Images/background.jpg");
@@ -9,7 +10,7 @@ body {
     background-repeat: no-repeat;
 }
 
-.loginbtn, .cart, .selectaccount{
+.loginbtn, .cart, .selectaccount, .account, .LogIn, .Home, .btn, .productcard, a, .cartbtn {
     font-family: DamageInc;
     font-size: 15px;
     color: white;
@@ -17,50 +18,48 @@ body {
     border: none;
     margin: 5px;
 }
-.selectaccount{
+
+.selectaccount {
     background-color: #00000085;
 }
-.account, .loginbtn, .cart{
+
+.account, .loginbtn, .cart {
     cursor: pointer;
 }
-.cart{
+
+.cart {
     position: absolute;
     right: 0;
     margin-right: 50px;
-
 }
-.LogIn{
-    font-family: DamageInc;
-    color:white;
-    font-size:15px;
+
+.LogIn {
+    color: white;
     background-color: #00000085;
-    border: none;
     padding-left: 5px;
 }
-.Home{
+
+.Home {
     background-color: transparent;
     border: none;
     padding-left: 5px;
     cursor: pointer;
 }
-.Home:active{
+
+.Home:active {
     color: black;
 }
 
-
 .btn {
-    font-family: DamageInc;
-    font-size: 15px;
-    color: white;
     background-color: #00000085;
-    border: none;
     padding: 10px;
-    margin: 5px;
     cursor: pointer;
 }
-.btn:active{
+
+.btn:active {
     background-color: #000000;
 }
+
 .btnform {
     display: flex;
     justify-content: center;
@@ -75,11 +74,15 @@ body {
     width: 200px;
     height: 300px;
     background-color: #00000085;
-    font-family: DamageInc;
     letter-spacing: 2px;
     color: white;
     text-align: center;
     position: relative;
+}
+
+a {
+    text-decoration: none;
+    background-color: transparent;
 }
 
 .cartbtn {
@@ -92,9 +95,9 @@ body {
     left: 50%;
     transform: translateX(-50%);
 }
-.cartbtn:active{
-    color: black;
 
+.cartbtn:active {
+    color: black;
 }
 
 .products {
