@@ -15,8 +15,11 @@
 
 <div class="WeaponCard">
         <h2>@Model.Weapon.Name</h2>
+
         <h3>@Model.Weapon.Category.Name</h3>
+        @if(Model.Weapon.AmmoId != null){
         <h3>@Model.Weapon.Ammo.Name</h3>
+        }
         <p>@Model.Weapon.Price</p>
         <img src="/Pictures/Vapen/Rifle/@Model.Weapon.Image" class="weaponpic" />
         <form method="post" asp-page-handler="AddToCart" class="AddToCart">
@@ -26,7 +29,7 @@
         </form>
         <h4>@Model.Weapon.Description</h4>
 </div>
-
+@if(Model.Weapon.AmmoId != null){
 <div class="AmmoCard">
       <h2>Fitting Ammo</h2>
       <h3>@Model.Weapon.Ammo.Name</h3>
@@ -39,3 +42,4 @@
                 <button type="submit" class="addtocartbtn">Add to cart</button>
             </form>
 </div>
+}
