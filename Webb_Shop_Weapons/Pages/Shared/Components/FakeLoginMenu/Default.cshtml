@@ -7,6 +7,10 @@
         <select asp-items="@Model" name="AccountID" class="selectaccount" id="account-id"></select>
     </label>
     <button type="submit" class="loginbtn">Log In</button>
-    <button type="submit" class="Home"><i class="fa-solid fa-house" style="color: white;"></i></button>
-    <button class="cart"><i class="fa-solid fa-cart-shopping fa-xl" style="color: #ffffff;"></i></button>
 </form>
+<a asp-page="/Index" class="Home">
+    <i class="fa-solid fa-house" style="color: white;"></i>
+</a>
+<a asp-page="/ShoppingCart" class="cart">
+    <i class="fa-solid fa-cart-shopping fa-xl" style="color: #ffffff;"></i>
+</a>
