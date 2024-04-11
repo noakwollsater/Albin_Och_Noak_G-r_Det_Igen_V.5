@@ -38,6 +38,7 @@
                                 <input type="hidden" name="productId" value="@item.Product.ProductId" />
                                 <input type="number" name="quantity" value="@item.Quantity" min="1" />
                                 <!--Använder formaction här, då hittar den OnPost, med handler=UpdateQuantity som går att hitta i cs filen-->
+                                <!--kan testa med form-page-handler med-->
                                 <button type="submit" formaction="ShoppingCart?handler=UpdateQuantity">Update</button>
                             </form>
                         </td>
