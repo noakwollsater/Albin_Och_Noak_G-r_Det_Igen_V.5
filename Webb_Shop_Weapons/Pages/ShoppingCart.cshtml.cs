@@ -30,6 +30,7 @@ namespace Webb_Shop_Weapons.Pages
             shoppingCart = LoadUserShoppingCart(currentUser.ID); 
         }
 
+
         public ShoppingCart LoadUserShoppingCart(int userId)
         {
             var shoppingCart = database.ShoppingCarts
@@ -44,6 +45,79 @@ namespace Webb_Shop_Weapons.Pages
             }
 
             return shoppingCart;
+        }
+
+        public IActionResult OnPostUpdateQuantity(int productId, int quantity)
+        {
+            var currentUser = database.Accounts.FirstOrDefault(a => a.ID == accessControl.LoggedInAccountID);
+            if (currentUser == null)
+            {
+                return RedirectToPage("index");
+            }
+
+            shoppingCart = LoadUserShoppingCart(currentUser.ID);
+
+            if (shoppingCart == null || !shoppingCart.Items.Any())
+            {
+                return Page();
+            }
+
+            var item = shoppingCart.Items.FirstOrDefault(i => i.Product.ProductId == productId);
+            if (item != null)
+            {
+                if (quantity > 0)
+                {
+
+                    item.Quantity = quantity;
+                    database.Update(item);
+                }
+                else
+                {
+                    shoppingCart.Items.Remove(item);
+                    database.Remove(item);
+                }
+
+                database.SaveChanges();
+            }
+
+            return RedirectToPage();
+        }
+
+
+        public IActionResult OnPostDeleteItem(int productId)
+        {
+            
+            var currentUser = database.Accounts.FirstOrDefault(a => a.ID == accessControl.LoggedInAccountID);
+
+            
+            if (currentUser == null)
+            {
+                return RedirectToPage("index");
+            }
+
+            
+            shoppingCart = LoadUserShoppingCart(currentUser.ID);
+
+            
+            if (shoppingCart == null || shoppingCart.Items == null || !shoppingCart.Items.Any())
+            {
+                return Page();
+            }
+
+            
+            var item = shoppingCart.Items.FirstOrDefault(i => i.Product.ProductId == productId);
+
+            
+            if (item == null)
+            {
+                return Page();
+            }
+
+         
+            shoppingCart.Items.Remove(item);
+            database.Remove(item);
+            database.SaveChanges();
+            return RedirectToPage();
         }
 
 

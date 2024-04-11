@@ -25,16 +25,31 @@
                     <th>Quantity</th>
                     <th>Price</th>
                     <th>Total</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model.shoppingCart.Items)
                 {
                     <tr>
-                        <td>@item.Product.Name</td> 
-                        <td>@item.Quantity</td>
+                        <td>@item.Product.Name</td>
+                        <td>
+                            <form method="post">
+                                <input type="hidden" name="productId" value="@item.Product.ProductId" />
+                                <input type="number" name="quantity" value="@item.Quantity" min="1" />
+                                <!--Använder formaction här, då hittar den OnPost, med handler=UpdateQuantity som går att hitta i cs filen-->
+                                <button type="submit" formaction="ShoppingCart?handler=UpdateQuantity">Update</button>
+                            </form>
+                        </td>
                         <td>$@item.Product.Price</td>
                         <td>$@(item.Product.Price * item.Quantity)</td>
+                        <td>
+                            <form method="post">
+                                <input type="hidden" name="productId" value="@item.Product.ProductId" />
+                                <!--Samma här fast med DeleteItem-->
+                                <button type="submit" formaction="ShoppingCart?handler=DeleteItem">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 }
             </tbody>
@@ -44,5 +59,4 @@
     {
         <p>Your shopping cart is empty.</p>
     }
-    
 </div>
