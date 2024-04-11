@@ -95,7 +95,14 @@ namespace Webb_Shop_Weapons.Pages
                 shoppingCart.Items.Add(newItem);
             }
 
+
             database.SaveChanges();
+
+            var product = database.Products.FirstOrDefault(p => p.ProductId == productId);
+            if (product != null)
+            {
+                TempData["Message"] = $"{product.Name} has been added to your cart.";
+            }
             return RedirectToPage();
         }
 

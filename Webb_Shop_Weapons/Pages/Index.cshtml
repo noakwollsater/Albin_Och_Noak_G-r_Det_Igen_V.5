@@ -18,10 +18,12 @@
     </div>
     <img src="/Pictures/Images/scumborder.png" class="banner">
 </div>
-
-
-
-
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+}
 
 <div class="products">
 
