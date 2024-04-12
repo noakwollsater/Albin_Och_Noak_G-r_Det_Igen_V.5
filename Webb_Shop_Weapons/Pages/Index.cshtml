@@ -18,10 +18,12 @@
     </div>
     <img src="/Pictures/Images/scumborder.png" class="banner">
 </div>
-
-
-
-
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+}
 
 <div class="products">
 
@@ -33,7 +35,10 @@
         <h3>@weapon.Category</h3>
         <p>@weapon.Price</p>
         <img src="/Pictures/Vapen/Rifle/@weapon.Image" class="weaponpic"/>
-        <button class ="cartbtn"><i class="fa-solid fa-cart-shopping fa-lg"></i></button>
+        <form method="post" asp-page-handler="AddToCart">
+                <input type="hidden" name="productId" value="@weapon.ProductId" />
+                <button type="submit" class="cartbtn"><i class="fa-solid fa-cart-shopping fa-lg"></i></button>
+        </form>
     </div>
 }
 </div>
