@@ -36,6 +36,7 @@ namespace Webb_Shop_Weapons.Pages
                 weaponsearch = weaponsearch.Where(weapon => weapon.Name.Contains(SearchBar));
             }
 
+
             var totalCount = weaponsearch.Count();
             var totalPages = (int)Math.Floor(totalCount / (double)PageSize);
 
