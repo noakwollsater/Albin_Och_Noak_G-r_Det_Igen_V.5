@@ -29,7 +29,7 @@
     height: 25px;
 }
 
-.shopbtn{
+.shopbtn, .dltbtn{
     font-family: DamageInc;
     font-size: 15px;
     color: white;
@@ -38,6 +38,14 @@
     width: 100px;
     height:30px;
 }
-.shopbtn:hover{
+.dltbtn{
+    height: 40px;
+}
+.shopbtn:hover, .dltbtn:hover{
     background-color: #000000;
+}
+.total{
+    letter-spacing: 2px;
+    color: green;
+    font-size: 40px;
 }
