@@ -35,13 +35,13 @@
 @foreach (var weapon in Model.Weapons)
 {
     <div class="productcard">
-        <h2><a href="/WeaponInfo?id=@weapon.ProductId">@weapon.Name</a></h2>
+        <h2><a asp-page="/WeaponInfo" asp-route-id="@weapon.ProductId">@weapon.Name</a></h2>
         <h3>@weapon.Category</h3>
         <p>@weapon.Price</p>
-        <img src="/Pictures/Vapen/Rifle/@weapon.Image" class="weaponpic"/>
+            <a asp-page="/WeaponInfo" asp-route-id="@weapon.ProductId"><img src="/Pictures/Vapen/Rifle/@weapon.Image" class="weaponpic" /></a>
         <form method="post" asp-page-handler="AddToCart">
-                <input type="hidden" name="productId" value="@weapon.ProductId" />
-                <button type="submit" class="cartbtn"><i class="fa-solid fa-cart-shopping fa-lg"></i></button>
+            <input type="hidden" name="productId" value="@weapon.ProductId" />
+            <button type="submit" class="cartbtn"><i class="fa-solid fa-cart-shopping fa-lg"></i></button>
         </form>
     </div>
 }
