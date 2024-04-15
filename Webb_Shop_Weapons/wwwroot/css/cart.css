@@ -1,0 +1,43 @@
+﻿body {
+}
+
+
+.WeaponCard {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    color: white;
+    font-family: "DamageInc";
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 2px;
+    margin: 0 auto;
+    width: 80%;
+    height: 400px;
+    background-color: #00000085;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.quantity{
+    font-family: DamageInc;
+    font-size: 15px;
+    color: white;
+    background-color: #00000085;
+    border: none;
+    width: 50px;
+    height: 25px;
+}
+
+.shopbtn{
+    font-family: DamageInc;
+    font-size: 15px;
+    color: white;
+    background-color: #00000085;
+    border: none;
+    width: 100px;
+    height:30px;
+}
+.shopbtn:hover{
+    background-color: #000000;
+}

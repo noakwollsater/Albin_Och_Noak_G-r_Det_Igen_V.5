@@ -10,20 +10,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <div class="top">
-    <div >
+    <div class="filter">
         <form class ="searchbar">
             <button class="searchbtn"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button>
             <input type="text" name="searchBar" class="searchBar" />
+            <select name="category" class="dropdown">
+                <option value="All">Category</option>
+                <option value="Assault Rifle">Assault Rifle</option>
+                <option value="Pistol">Pistol</option>
+                <option value="Sniper Rifle">Sniper Rifle</option>
+                <option value="Melee Weapon">Melee Weapon</option>
+                <option value="Machine gun">Machine gun</option>
+                <option value="Rocket Launcher">Rocket Launcher</option>
+                <option value="Grenade Launcher">Grenade Launcher</option>
+            </select>
         </form>
-    </div>
+     </div>
     <img src="/Pictures/Images/scumborder.png" class="banner">
 </div>
-@if (TempData["Message"] != null)
-{
-    <div class="alert alert-success">
-        @TempData["Message"]
-    </div>
-}
 
 <div class="products">
 

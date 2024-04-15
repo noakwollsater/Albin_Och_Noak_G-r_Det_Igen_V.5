@@ -34,8 +34,41 @@ body {
     border-radius: 10px;
     margin-top: 10px;
 }
+.description{
+    max-width: 40%;
+    margin-top: 10%;
+}
+
 .WeaponCard{
     width: 80%;
     height: 400px;
-
+}
+.AddToCart{
+    display: flex;
+    margin-left: 70px;
+}
+.quantity {
+    margin-top: 50px;
+    font-family: DamageInc;
+    font-size: 25px;
+    color: white;
+    background-color: #00000085;
+    border: none;
+    width: 50px;
+    height:39px;
+    
+}
+.addtocartbtn{
+    font-family: DamageInc;
+    font-size: 15px;
+    color: white;
+    background-color: #00000085;
+    border: none;
+    width: 100px;
+    height: 40px;
+    margin-top: 50px;
+    margin-left: 2px;
+}
+.addtocartbtn:hover{
+    background-color: #000000;
 }

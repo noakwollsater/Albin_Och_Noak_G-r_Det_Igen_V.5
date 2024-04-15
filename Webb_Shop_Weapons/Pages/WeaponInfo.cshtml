@@ -22,12 +22,12 @@
         }
         <p>@Model.Weapon.Price</p>
         <img src="/Pictures/Vapen/Rifle/@Model.Weapon.Image" class="weaponpic" />
-    <form method="post" asp-page-handler="AddToCart">
+    <form method="post" asp-page-handler="AddToCart" class="AddToCart">
         <input type="number" name="quantity" class="quantity" value="1" />
         <input type="hidden" name="weaponID" value="@Model.Weapon.ProductId" />
         <button type="submit" class="addtocartbtn">Add to cart</button>
     </form>
-        <h4>@Model.Weapon.Description</h4>
+        <h4 class="description">@Model.Weapon.Description</h4>
 </div>
 @if(Model.Weapon.AmmoId != null){
 <div class="AmmoCard">

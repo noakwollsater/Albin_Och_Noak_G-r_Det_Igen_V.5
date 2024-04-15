@@ -8,7 +8,7 @@
 }
 
 <head>
-    <link rel="stylesheet" href="~/css/weaponinfo.css" />
+    <link rel="stylesheet" href="~/css/cart.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
@@ -36,10 +36,10 @@
                         <td>
                             <form method="post">
                                 <input type="hidden" name="productId" value="@item.Product.ProductId" />
-                                <input type="number" name="quantity" value="@item.Quantity" min="1" />
+                                <input type="number" name="quantity" value="@item.Quantity" min="1" class="quantity"/>
                                 <!--Använder formaction här, då hittar den OnPost, med handler=UpdateQuantity som går att hitta i cs filen-->
                                 <!--kan testa med form-page-handler med-->
-                                <button type="submit" formaction="ShoppingCart?handler=UpdateQuantity">Update</button>
+                                <button type="submit" formaction="ShoppingCart?handler=UpdateQuantity" class="shopbtn">Update</button>
                             </form>
                         </td>
                         <td>$@item.Product.Price</td>
@@ -48,7 +48,7 @@
                             <form method="post">
                                 <input type="hidden" name="productId" value="@item.Product.ProductId" />
                                 <!--Samma här fast med DeleteItem-->
-                                <button type="submit" formaction="ShoppingCart?handler=DeleteItem">Delete</button>
+                                <button type="submit" formaction="ShoppingCart?handler=DeleteItem" class="shopbtn">Delete</button>
                             </form>
                         </td>
                     </tr>

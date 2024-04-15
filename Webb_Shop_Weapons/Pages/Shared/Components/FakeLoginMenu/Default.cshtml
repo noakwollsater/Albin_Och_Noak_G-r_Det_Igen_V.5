@@ -1,7 +1,7 @@
 ﻿@using Webb_Shop_Weapons.Models;
 @model IEnumerable<SelectListItem>;
-
-<form method="post" asp-page="/FakeLogin" class="LogIn">
+<div class="LogIn">
+<form method="post" asp-page="/FakeLogin">
     <label>
         Logged in as:
         <select asp-items="@Model" name="AccountID" class="selectaccount" id="account-id"></select>
@@ -14,3 +14,4 @@
 <a asp-page="/ShoppingCart" class="cart">
     <i class="fa-solid fa-cart-shopping fa-xl" style="color: #ffffff;"></i>
 </a>
+</div>

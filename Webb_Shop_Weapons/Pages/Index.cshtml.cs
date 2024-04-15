@@ -27,12 +27,14 @@ namespace Webb_Shop_Weapons.Pages
         public bool HasNextPage { get; set; }
         public bool HasPreviousPage { get; set; }
         public string SearchBar { get; set; }
+        public string CategorySelect { get; set; }
 
 
-        public IActionResult OnGet(int pageID = 0, string searchBar = null)
+        public IActionResult OnGet(int pageID = 0, string? searchBar = null, string? category = null)
         {
             CurrentPage = pageID;
             SearchBar = searchBar;
+            CategorySelect = category;
 
             IQueryable<Weapon> weaponsearch = database.Weapons;
 
@@ -40,12 +42,17 @@ namespace Webb_Shop_Weapons.Pages
             {
                 weaponsearch = weaponsearch.Where(weapon => weapon.Name.Contains(SearchBar));
             }
+            else if (!string.IsNullOrEmpty(CategorySelect))
+            {
+                weaponsearch = weaponsearch.Where(weapon => weapon.Category.Name == CategorySelect);
+
+            }
 
             
 
+
             var totalCount = weaponsearch.Count();
             var totalPages = (int)Math.Floor(totalCount / (double)PageSize);
-
 
             Weapons = weaponsearch
                 .Skip((CurrentPage) * PageSize)
@@ -57,6 +64,8 @@ namespace Webb_Shop_Weapons.Pages
 
             return Page();
         }
+
+
 
         public IActionResult OnPostAddToCart(int productId)
         {
