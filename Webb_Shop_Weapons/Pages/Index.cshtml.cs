@@ -44,7 +44,14 @@ namespace Webb_Shop_Weapons.Pages
             }
             else if (!string.IsNullOrEmpty(CategorySelect))
             {
-                weaponsearch = weaponsearch.Where(weapon => weapon.Category.Name == CategorySelect);
+                if (CategorySelect == "All")
+                {
+                    
+                }
+                else
+                {
+                    weaponsearch = weaponsearch.Where(weapon => weapon.Category.Name == CategorySelect);
+                }
 
             }
 
