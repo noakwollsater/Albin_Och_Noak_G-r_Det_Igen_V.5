@@ -27,7 +27,7 @@ namespace Webb_Shop_Weapons.Pages
                 RedirectToPage("index");
             }
 
-            shoppingCart = LoadUserShoppingCart(currentUser.ID); 
+            shoppingCart = LoadUserShoppingCart(currentUser.ID);
         }
 
 
@@ -86,40 +86,65 @@ namespace Webb_Shop_Weapons.Pages
 
         public IActionResult OnPostDeleteItem(int productId)
         {
-            
+            //skulle kunna göra en metod för denna så det inte behövs upprepas
             var currentUser = database.Accounts.FirstOrDefault(a => a.ID == accessControl.LoggedInAccountID);
 
-            
+
             if (currentUser == null)
             {
                 return RedirectToPage("index");
             }
 
-            
+
             shoppingCart = LoadUserShoppingCart(currentUser.ID);
 
-            
+
             if (shoppingCart == null || shoppingCart.Items == null || !shoppingCart.Items.Any())
             {
                 return Page();
             }
 
-            
+
             var item = shoppingCart.Items.FirstOrDefault(i => i.Product.ProductId == productId);
 
-            
+
             if (item == null)
             {
                 return Page();
             }
 
-         
+
             shoppingCart.Items.Remove(item);
             database.Remove(item);
             database.SaveChanges();
             return RedirectToPage();
         }
+    public IActionResult OnPostDeleteAll()
+    {
+       
+        var currentUser = database.Accounts.FirstOrDefault(a => a.ID == accessControl.LoggedInAccountID);
 
+        if (currentUser == null)
+        {
+            return RedirectToPage("Index");
+        }
 
+        shoppingCart = LoadUserShoppingCart(currentUser.ID);
+
+        if (shoppingCart == null || shoppingCart.Items == null || !shoppingCart.Items.Any())
+        {
+            return Page();
+        }
+
+        foreach (var item in shoppingCart.Items.ToList())
+        {
+            shoppingCart.Items.Remove(item);
+            database.Remove(item);
+        }
+
+        database.SaveChanges();
+       
+        return RedirectToPage();
     }
+}
 }
