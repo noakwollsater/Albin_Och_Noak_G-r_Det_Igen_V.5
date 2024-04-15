@@ -24,7 +24,9 @@
         <img src="/Pictures/Vapen/Rifle/@Model.Weapon.Image" class="weaponpic" />
     <form method="post" asp-page-handler="AddToCart" class="AddToCart">
         <input type="number" name="quantity" class="quantity" value="1" />
-        <input type="hidden" name="weaponID" value="@Model.Weapon.ProductId" />
+        <input type="hidden" name="productId" value="@Model.Weapon.ProductId" />
+        <!--Behövs för att skicka tillbaka till rätt vapen när man köper ammo-->
+        <input type="hidden" name="viewingWeaponId" value="@Model.Weapon.ProductId" />
         <button type="submit" class="addtocartbtn">Add to cart</button>
     </form>
         <h4 class="description">@Model.Weapon.Description</h4>
@@ -38,7 +40,9 @@
       <img src="/Pictures/Ammo/@Model.Ammo.Image" class="ammopic"/>
       <form method="post" asp-page-handler="AddToCart" class="AddToCart">
                 <input type="number" name="Quantity" class="quantity" value="1" />
-                <input type="hidden" name="WeaponID" value="@Model.Ammo.ProductId" />
+                <input type="hidden" name="productId" value="@Model.Ammo.ProductId" />
+            <!--Behövs för att skicka tillbaka till rätt vapen när man köper ammo, blir att den försöker ladda på ammo annars, blir null-->
+                <input type="hidden" name="viewingWeaponId" value="@Model.Weapon.ProductId" />
                 <button type="submit" class="addtocartbtn">Add to cart</button>
             </form>
 </div>

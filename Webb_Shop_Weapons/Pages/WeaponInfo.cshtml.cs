@@ -36,26 +36,24 @@ namespace Webb_Shop_Weapons.Pages
             return Page();
         }
 
-        public IActionResult OnPost( int weaponId, int quantity)
+        public IActionResult OnPost(int productId, int quantity, int viewingWeaponId)
         {
             var currentUser = database.Accounts.FirstOrDefault(a => a.ID == accessControl.LoggedInAccountID);
             if (currentUser == null)
             {
                 return RedirectToPage("index");
             }
-            else
-            {
-                AddItemToCart(currentUser.ID, weaponId, quantity);
-            }
 
+            AddItemToCart(currentUser.ID, productId, quantity);
 
-            return RedirectToPage("index"); ;
+            
+            return RedirectToPage(new { id = viewingWeaponId });
         }
 
         public void AddItemToCart(int userID, int product, int quantity)
         {
-            try
-            {
+            
+            
 
             var shoppingCart = database.ShoppingCarts
                             .Include(s => s.Items)
@@ -91,17 +89,10 @@ namespace Webb_Shop_Weapons.Pages
                 shoppingCart.Items.Add(newItem);
             }
                 database.SaveChanges();
-                TempData["Message"] = "Item added to cart successfully.";
-                RedirectToPage();
 
 
+            
 
-            }
-            catch (Exception ex)
-            {
-                TempData["Error"] = "Error adding item to cart: " + ex.Message;
-                Page();
-            }
 
         }
     }
