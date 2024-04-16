@@ -38,38 +38,31 @@ namespace Webb_Shop_Weapons.Pages
 
             IQueryable<Weapon> weaponsearch = database.Weapons;
 
+            if (!string.IsNullOrEmpty(CategorySelect) && CategorySelect != "All")
+            {
+                weaponsearch = weaponsearch.Where(weapon => weapon.Category.Name == CategorySelect);
+            }
+
             if (!string.IsNullOrEmpty(SearchBar))
             {
                 weaponsearch = weaponsearch.Where(weapon => weapon.Name.Contains(SearchBar));
             }
-            else if (!string.IsNullOrEmpty(CategorySelect))
-            {
-                if (CategorySelect == "All")
-                {
-                    
-                }
-                else
-                {
-                    weaponsearch = weaponsearch.Where(weapon => weapon.Category.Name == CategorySelect);
-                }
-
-            }
-
             
-
-
             var totalCount = weaponsearch.Count();
-            var totalPages = (int)Math.Floor(totalCount / (double)PageSize);
+            var totalPages = (int)Math.Ceiling(totalCount / (double)PageSize);
 
             Weapons = weaponsearch
+                .OrderBy(weapon => weapon.Name)
                 .Skip((CurrentPage) * PageSize)
                 .Take(PageSize)
                 .ToList();
 
-            HasNextPage = CurrentPage < totalPages;
-            HasPreviousPage = CurrentPage >= 1;
+            HasNextPage = CurrentPage < totalPages - 1; 
+            HasPreviousPage = CurrentPage > 0;
 
             return Page();
+
+            
         }
 
 
