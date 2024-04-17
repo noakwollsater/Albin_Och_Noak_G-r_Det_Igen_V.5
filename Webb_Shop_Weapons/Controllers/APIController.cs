@@ -11,108 +11,54 @@ namespace Webb_Shop_Weapons.Controllers
     public class APIController : ControllerBase
     {
         private readonly AppDbContext database;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public APIController(AppDbContext database)
+
+        public APIController(AppDbContext database, IHttpContextAccessor httpContextAccessor)
         {
             this.database = database;
+            _httpContextAccessor = httpContextAccessor;
         }
 
+        //nytt
         [HttpGet("/products")]
-        public List<Weapon> GetProducts()
+        public IActionResult GetProducts(string name = null, string category = null, int page = 1)
         {
-            return database.Weapons.ToList();
-        }
+            string url = $"{Request.Scheme}://{Request.Host}";
 
-        [HttpGet("/categories")]
-        public List<Category> GetCategories()
-        {
-            return database.Categories.ToList();
-        }
+            var query = database.Weapons.AsQueryable();
 
+            if (!string.IsNullOrEmpty(name))
+            {
+                query = query.Where(p => p.Name.Contains(name));
+            }
 
-        [HttpGet("/products/{id}")]
-        public Weapon GetProduct(int id)
-        {
-            return database.Weapons.Include(p => p.Category).Include(p => p.Ammo).Single(p => p.ProductId == id);
-        }
+            if (!string.IsNullOrEmpty(category))
+            {
+                query = query.Where(p => p.Category.Name == category);
+            }
 
-        [HttpGet("/categories/{id}")]
-        public Category GetCategory(int id)
-        {
-            return database.Categories.Single(p => p.CategoryId == id);
-        }
+            const int pageSize = 10;
+            var products = query
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .Select(p => new { 
+                    Name = p.Name,
+                    Image = url + "/Pictures/Vapen/Rifle/" + p.Image, 
+                    Price = p.Price,
+                    Category = p.Category.Name,
+                    Description = p.Description
+                })
+                .ToList();
+            if (!products.Any())
+            {
+                return NotFound("No products found matching the criteria.");
+            }
 
-        [HttpPost("/products")]
-        public Weapon AddProduct(Weapon product)
-        {
-            database.Weapons.Add(product);
-            database.SaveChanges();
-            return product;
-        }
-
-        [HttpPost("/categories")]
-        public Category AddCategory(Category category)
-        {
-            database.Categories.Add(category);
-            database.SaveChanges();
-            return category;
-        }
-
-
-        [HttpPut("/products/{id}")]
-        public Weapon UpdateProduct(int id, Weapon product)
-        {
-            product.ProductId = id;
-            database.Weapons.Update(product);
-            database.SaveChanges();
-            return product;
-        }
-
-        [HttpPut("/categories/{id}")]
-        public Category UpdateCategory(int id, Category category)
-        {
-            category.CategoryId = id;
-            database.Categories.Update(category);
-            database.SaveChanges();
-            return category;
-        }
-
-
-        [HttpDelete("/products/{id}")]
-        public void DeleteProduct(int id)
-        {
-            database.Weapons.Remove(database.Weapons.Single(p => p.ProductId == id));
-            database.SaveChanges();
-        }
-
-        [HttpDelete("/categories/{id}")]
-        public void DeleteCategory(int id)
-        {
-            database.Categories.Remove(database.Categories.Single(p => p.CategoryId == id));
-            database.SaveChanges();
-        }
-
-        [HttpPost("/cart")]
-        public CartItem AddToCart(CartItem cartItem)
-        {
-            database.CartItems.Add(cartItem);
-            database.SaveChanges();
-            return cartItem;
-        }
-
-        [HttpGet("/cart/{id}")]
-        public List<CartItem> GetCart(int id)
-        {
-            return database.CartItems.Include(p => p.Product).Where(p => p.ShoppingCartId == id).ToList();
-        }
-
-        [HttpDelete("/cart/{id}")]
-        public void RemoveFromCart(int id)
-        {
-            database.CartItems.Remove(database.CartItems.Single(p => p.CartItemId == id));
-            database.SaveChanges();
+            return Ok(products);
         }
 
 
     }
 }
+
