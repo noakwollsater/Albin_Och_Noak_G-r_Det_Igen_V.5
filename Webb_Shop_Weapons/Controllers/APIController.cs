@@ -15,5 +15,11 @@ namespace Webb_Shop_Weapons.Controllers
         {
             this.database = database;
         }
+
+        [HttpGet("/products")]
+        public List<>
+        
+
+
     }
 }
