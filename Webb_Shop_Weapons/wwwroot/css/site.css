@@ -197,6 +197,12 @@ a {
     }
 }
 
+@media screen and (max-width: 981px){
+    .loginbtn {
+        margin: auto;
+    
+}
+
 @media screen and (max-width: 623px){
     .LogIn {
         grid-template-columns: 1.5fr 0.2fr 1fr 1fr 1fr;
