@@ -2,9 +2,7 @@
     font-family: "DamageInc";
     src: url("Fonts/Smalldamade.ttf");
 }
-body {
-    background-size: cover;
-}
+
 .banner {
     width: 60%;
     height: 200px;
@@ -71,4 +69,11 @@ body {
 }
 .addtocartbtn:hover{
     background-color: #000000;
+}
+
+@media screen and (max-width: 1400px){
+    .description{
+        max-width: 40%;
+        font-size: 10px;
+    }
 }
