@@ -49,3 +49,9 @@
     color: green;
     font-size: 40px;
 }
+
+@media screen and (max-width: 620px) {
+    .WeaponCard {
+        font-size: 15px;
+    }
+}
