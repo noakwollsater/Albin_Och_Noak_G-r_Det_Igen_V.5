@@ -80,7 +80,7 @@
         font-size: 10px;
     }
 }
-@media screen and (max-width: 1131px){
+@media screen and (max-width: 1140px){
     .weaponpic {
         margin: auto;
     }
@@ -88,5 +88,32 @@
         margin: auto;
         margin-top: 10px;
 
+    }
+
+    .banner, .AmmoCard, .WeaponCard {
+        width: 80%; 
+    }
+
+    .weaponpic {
+        width: 30%; 
+    }
+
+    .AddToCart, .quantity, .addtocartbtn {
+        margin: auto;
+        display: block;
+        margin-top: 20px;
+    }
+
+    .description {
+        max-width: 30%;
+        margin-top: 5%; 
+    }
+    .AmmoCard {
+        font-size:10px;
+    }
+
+    .ammopic {
+        margin-left: 20px;
+        width:20%;
     }
 }
